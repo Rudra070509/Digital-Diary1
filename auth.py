@@ -27,12 +27,16 @@ class AuthWindow(tk.Tk):
         super()._init_()
         self.title("Login")
         self.geometry("350x300")
+
         self._authenticated = False
         self.logged_in_user = None
 
         self.build_login()
 
     def build_login(self):
+        for w in self.winfo_children():
+            w.destroy()
+
         tk.Label(self, text="Username").pack()
         self.user = tk.Entry(self)
         self.user.pack()
